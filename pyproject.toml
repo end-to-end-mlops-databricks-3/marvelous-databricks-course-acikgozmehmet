@@ -1,6 +1,6 @@
 [project]
-name = "mlops-course"
-description = "MLOps with Databricks course"
+name = "house-prices"
+description = "MLOps with Databricks course with house-prices"
 requires-python = ">=3.11, <3.12"
 dependencies = ["mlflow==2.17.0",
                 "cffi==1.17.1",
@@ -34,9 +34,12 @@ dev = ["databricks-connect==15.4.5",
        "pytest>=8.3.4, <9",             # Added by MA
     ]
 test = [
+    "pre-commit>=4.1.0, <5",
     "delta-spark==3.3.0",
-    "pyspark==3.5.3",
+    "pyspark==3.5.5",
     "pytest>=8.3.5",
+    "pytest-cov >=6.1.0",
+    "pydantic-settings>=2.8.1"
 ]
 
 [build-system]
@@ -45,7 +48,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where =["src"]
-include = ["mlops_course*"]
+include = ["house_prices"]
 
 [tool.setuptools.dynamic]
 version = { file = "version.txt" }
@@ -53,9 +56,6 @@ version = { file = "version.txt" }
 [tool.pytest.ini_options]
 testpaths = [ "tests" ]
 pythonpath = [ "." ]
-
-# [lint.pydocstyle]
-# convention = "sphinx"
 
 [tool.ruff]
 line-length = 120
