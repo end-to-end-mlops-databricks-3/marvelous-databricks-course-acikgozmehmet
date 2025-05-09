@@ -64,6 +64,14 @@ tasks:
       python -m http.server --directory "{{.TASKFILE_DIR}}/test-reports/htmlcov/" 8000
     silent: false
 
+  copy-whl-to-dbx:
+    desc: "Copy whl file to Databricks Volume"
+    cmds: 
+      - databricks fs cp ./dist/*.whl dbfs:/Volumes/mlops_dev/acikgozm/packages/house_prices-latest-py3-none-any.whl --overwrite
+      - rm -f ./notebooks/*.whl
+      - cp ./dist/*.whl ./notebooks/.
+    silent: true
+
   help:
     desc: Print all tasks defined in the Taskfile
     cmd: task -l

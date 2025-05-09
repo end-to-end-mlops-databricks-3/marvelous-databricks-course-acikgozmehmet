@@ -103,3 +103,4 @@ test-reports
 tests/catalog
 
 .databricks
+notebooks/logs

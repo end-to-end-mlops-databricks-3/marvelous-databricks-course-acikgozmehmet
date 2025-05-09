@@ -1,18 +1,30 @@
 # Databricks notebook source
-
-% pip install -e ..
-% restart_python
-
+# Install in editable mode.
 # COMMAND ----------
-# from pathlib import Path
-# import sys
-# sys.path.append(str(Path.cwd().parent / 'src'))
+!pip install python-dotenv
 
 # COMMAND ----------
-%pip install house_prices-0.1.0-py3-none-any.whl
-%pip install git+https://github.com/end-to-end-mlops-databricks-3/marvelous.git
+from dotenv import load_dotenv
+load_dotenv(override=True)
 # COMMAND ----------
-% restart_python
+
+%pip install -e ..
+%restart_python
+
+# COMMAND ----------
+from pathlib import Path
+import sys
+sys.path.append(str(Path.cwd().parent / 'src'))
+
+# COMMAND ----------
+# Install the whl file located in the notebooks folder 
+%pip install house_prices-0.1.1-py3-none-any.whl
+# %pip install git+https://github.com/end-to-end-mlops-databricks-3/marvelous.git
+%restart_python
+
+# COMMAND ----------
+%pip install house_prices-0.1.1-py3-none-any.whl
+%restart_python
 # COMMAND ----------
 from loguru import logger
 import yaml
