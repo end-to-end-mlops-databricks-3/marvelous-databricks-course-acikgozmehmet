@@ -19,6 +19,7 @@ from loguru import logger
 from mlflow import MlflowClient
 from mlflow.data.dataset_source import DatasetSource
 from mlflow.models import infer_signature
+from mlflow.pyfunc import PythonModelContext
 from mlflow.utils.environment import _mlflow_conda_env
 from pyspark.sql import SparkSession
 from sklearn.compose import ColumnTransformer
@@ -43,9 +44,7 @@ class HousePriceModelWrapper(mlflow.pyfunc.PythonModel):
         """
         self.model = model
 
-    def predict(
-        self, context: mlflow.pyfunc.PythonModelContext, model_input: pd.DataFrame | np.ndarray
-    ) -> dict[str, float]:
+    def predict(self, context: PythonModelContext, model_input: pd.DataFrame | np.ndarray) -> dict[str, float]:
         """Make predictions using the wrapped model.
 
         :param context: The MLflow context (unused in this implementation).

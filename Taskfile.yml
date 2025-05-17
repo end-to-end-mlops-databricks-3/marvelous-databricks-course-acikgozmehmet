@@ -72,6 +72,16 @@ tasks:
       - cp ./dist/*.whl ./notebooks/.
     silent: true
 
+  dos2unix:
+    desc: |
+      Change all Python files in 'src' and 'tests' from CRLF (Carriage Return + Line Feed)
+      to LF (Line Feed) line endings.
+
+      This helps ensure consistent line endings across different operating systems.
+      Useful if files were edited on Windows and need to be used in Unix-like environments.
+    cmd: find src tests -type f -name '*.py' -exec dos2unix '{}' +
+    silent: true
+
   help:
     desc: Print all tasks defined in the Taskfile
     cmd: task -l
