@@ -101,6 +101,6 @@ dmypy.json
 **/*.whl
 test-reports
 tests/catalog
-
+tests/mlruns
 .databricks
 notebooks/logs
