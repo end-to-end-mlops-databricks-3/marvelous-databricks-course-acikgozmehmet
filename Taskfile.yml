@@ -66,7 +66,7 @@ tasks:
 
   copy-whl-to-dbx:
     desc: "Copy whl file to Databricks Volume"
-    cmds: 
+    cmds:
       - databricks fs cp ./dist/*.whl dbfs:/Volumes/mlops_dev/acikgozm/packages/house_prices-latest-py3-none-any.whl --overwrite
       - rm -f ./notebooks/*.whl
       - cp ./dist/*.whl ./notebooks/.
