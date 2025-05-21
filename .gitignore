@@ -100,7 +100,10 @@ dmypy.json
 .Mehmet
 **/*.whl
 test-reports
-tests/catalog
-
+# tests/catalog
+tests/mlruns
 .databricks
 notebooks/logs
+Makefile
+make_doc.sh
+docs/
